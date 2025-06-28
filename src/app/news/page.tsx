@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: " সংবাদ | নারুয়া বাজার",
+  description: "নারুয়া বাজারের সর্বশেষ সংবাদ ও আপডেট।",
+};
+
 export default function NewsPage() {
   return (
     <div>

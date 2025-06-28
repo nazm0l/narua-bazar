@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: " যোগাযোগ | নারুয়া বাজার",
+  description: "নারুয়া বাজারের সাথে যোগাযোগের তথ্য এবং ফর্ম।",
+};
+
 export default function ContactPage() {
   return (
     <div>

@@ -1,4 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "দোকানপাট | নারুয়া বাজার",
+  description: "নারুয়া বাজারের বিভিন্ন দোকানপাটের তথ্য এবং তালিকা।",
+};
 
 export default function ShopsPage() {
   return (

@@ -24,7 +24,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/info" className="text-primary hover:underline">
+            <Link href="/information" className="text-primary hover:underline">
               তথ্য
             </Link>
           </li>
