@@ -1,9 +1,12 @@
+import HeroSection from "@/components/HeroSection";
+
 export default function Home() {
   return (
     <div>
-      <h1 className="text-4xl font-bold text-center mt-10 bg-amber-500 text-white p-5 rounded-lg shadow-lg">
-        নারুয়া বাজার ওয়েবসাইটে আপনাকে স্বাগতম{" "}
-      </h1>
+      <HeroSection />
+      <div className="container mx-auto p-8 h-96 bg-accent">
+        <p>Section 2</p>
+      </div>
     </div>
   );
 }
