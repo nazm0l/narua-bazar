@@ -9,27 +9,27 @@ export default function Navbar() {
         </Link>
         <ul className="flex space-x-4">
           <li>
-            <Link href="/" className="text-primary hover:underline">
+            <Link href="/" className="text-black hover:underline">
               হোম
             </Link>
           </li>
           <li>
-            <Link href="/shops" className="text-primary hover:underline">
+            <Link href="/shops" className="text-black hover:underline">
               দোকান সমূহ
             </Link>
           </li>
           <li>
-            <Link href="/news" className="text-primary hover:underline">
+            <Link href="/news" className="text-black hover:underline">
               সংবাদ
             </Link>
           </li>
           <li>
-            <Link href="/information" className="text-primary hover:underline">
+            <Link href="/information" className="text-black hover:underline">
               তথ্য
             </Link>
           </li>
           <li>
-            <Link href="/contact" className="text-primary hover:underline">
+            <Link href="/contact" className="text-black hover:underline">
               যোগাযোগ
             </Link>
           </li>
