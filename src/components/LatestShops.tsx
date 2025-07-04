@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Badge } from "./ui/badge";
+import { BadgeCheckIcon } from "lucide-react";
 
 export default function LatestShops() {
   return (
@@ -24,6 +26,13 @@ export default function LatestShops() {
                 className="cursor-pointer rounded-t-lg object-cover w-full h-auto hover:scale-105 transition-transform duration-300"
               />
               <div className="p-4">
+                <Badge
+                  variant="secondary"
+                  className="bg-blue-500 text-white dark:bg-blue-600 "
+                >
+                  <BadgeCheckIcon />
+                  Verified
+                </Badge>
                 <h4 className="text-xl font-semibold text-gray-800">
                   নারুয়া বাজারের দোকান {index + 1}
                 </h4>
