@@ -127,3 +127,8 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.swiper-pagination {
+  position: absolute;
+  margin-bottom: 0px !important;
+}
