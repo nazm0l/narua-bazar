@@ -61,7 +61,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="flex flex-col items-center">
           {/* Other Page Links */}
           <h3 className="text-lg font-semibold mb-4">অন্যান্য পৃষ্ঠা</h3>
           <ul className="space-y-2">

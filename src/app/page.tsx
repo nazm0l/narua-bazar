@@ -1,4 +1,3 @@
-import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import LatestNews from "@/components/LatestNews";
 import LatestShops from "@/components/LatestShops";
@@ -13,7 +12,6 @@ export default function Home() {
           <LatestShops />
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

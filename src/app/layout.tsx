@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const hindSiliguri = Hind_Siliguri({
   variable: "--font-hind-siliguri",
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
