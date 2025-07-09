@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import LatestNews from "@/components/LatestNews";
 import LatestShops from "@/components/LatestShops";
+import UpComingEvents from "@/components/UpComingEvents";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
           <LatestShops />
         </div>
       </div>
+      <UpComingEvents />
     </div>
   );
 }

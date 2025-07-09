@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Badge } from "./ui/badge";
 import { BadgeCheckIcon } from "lucide-react";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 export default function LatestShops() {
   return (
@@ -41,6 +43,13 @@ export default function LatestShops() {
             </div>
           ))}
         </div>
+      </div>
+      <div className="mt-10 text-center">
+        <Link href="/shops" className="inline-block">
+          <Button className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 cursor-pointer">
+            সব দোকান দেখুন
+          </Button>
+        </Link>
       </div>
     </div>
   );

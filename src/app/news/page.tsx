@@ -1,19 +1,105 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: " সংবাদ | নারুয়া বাজার",
+  title: "সংবাদ | নারুয়া বাজার",
   description: "নারুয়া বাজারের সর্বশেষ সংবাদ ও আপডেট।",
 };
 
 export default function NewsPage() {
   return (
     <div>
-      <h1 className="text-4xl font-bold text-center mt-10 bg-amber-500 text-white p-5 rounded-lg shadow-lg">
-        নারুয়া বাজারের সংবাদ
-      </h1>
-      <p className="text-center mt-5">
-        এখানে আপনি নারুয়া বাজারের সর্বশেষ সংবাদ ও আপডেট পাবেন।
-      </p>
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-cyan-100/10 to-blue-200/30">
+        <div className="container mx-auto p-4">
+          <h1 className="text-4xl font-extrabold text-center text-gray-800 py-10">
+            নারুয়া বাজারের সংবাদ
+          </h1>
+          <p className="text-center text-gray-700 max-w-2xl mx-auto text-lg">
+            নারুয়া বাজারের সর্বশেষ সংবাদ, আপডেট এবং ইভেন্ট সম্পর্কে জানুন। এখানে
+            পাবেন বাজারের নতুন খবর এবং বিশেষ অফার।
+          </p>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-10 gap-10">
+          {/* News Section */}
+          <div className="lg:col-span-7">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-2 border-b pb-2 border-gray-300">
+              📰 <span>সর্বশেষ সংবাদ</span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {Array.from({ length: 6 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 overflow-hidden border border-gray-100"
+                >
+                  <img
+                    src={`https://source.unsplash.com/random/600x400?market,news&sig=${index}`}
+                    alt="সংবাদের ছবি"
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-5">
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                      সংবাদ শিরোনাম {index + 1}
+                    </h3>
+                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                      এই সংবাদে নারুয়া বাজারের সর্বশেষ আপডেট এবং ইভেন্ট সম্পর্কে
+                      বিস্তারিত তথ্য রয়েছে।
+                    </p>
+                    <a
+                      href="#"
+                      className="text-blue-600 font-medium hover:underline"
+                    >
+                      আরও পড়ুন →
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Events Section */}
+          <div className="lg:col-span-3">
+            <h2 className="text-3xl font-bold text-blue-700 mb-6 flex items-center gap-2 border-b pb-2 border-blue-200">
+              🎉 <span>সাম্প্রতিক ইভেন্ট</span>
+            </h2>
+            <div className="space-y-6">
+              {Array.from({ length: 2 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="bg-blue-50 border-l-4 border-blue-400 rounded-md shadow hover:shadow-lg transition duration-300 overflow-hidden"
+                >
+                  <img
+                    src={`https://source.unsplash.com/random/600x300?event,fair&sig=${index}`}
+                    alt="ইভেন্ট ছবি"
+                    className="w-full h-40 object-cover"
+                  />
+                  <div className="p-5">
+                    <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded mb-2">
+                      ইভেন্ট
+                    </span>
+                    <h3 className="text-lg font-semibold text-blue-800 mb-2">
+                      ইভেন্ট শিরোনাম {index + 1}
+                    </h3>
+                    <p className="text-blue-700 mb-4 text-sm leading-relaxed">
+                      এই ইভেন্টে নারুয়া বাজারের বিশেষ কার্যক্রম এবং অফার
+                      সম্পর্কে বিস্তারিত তথ্য রয়েছে।
+                    </p>
+                    <a
+                      href="#"
+                      className="text-blue-600 font-medium hover:underline"
+                    >
+                      বিস্তারিত দেখুন →
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
