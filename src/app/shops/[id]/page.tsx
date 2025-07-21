@@ -27,7 +27,7 @@ export default function SingleShopPage({ params }: { params: { id: string } }) {
               যোগাযোগের তথ্য এবং অন্যান্য গুরুত্বপূর্ণ তথ্য।
             </p>
             <div className="flex items-center gap-4">
-              <span className="text-gray-500">📍 অবস্থান: নারুয়া বাজার</span>
+              <span className="text-gray-500">📍 অবস্থান: মাছ বাজার</span>
               <span className="text-gray-500">📞 ফোন: 0123456789</span>
             </div>
           </div>
