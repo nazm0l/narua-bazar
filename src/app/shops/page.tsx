@@ -31,27 +31,27 @@ export default function ShopsPage() {
           দোকানের ধরন অনুসারে ফিল্টার করুন
         </h2>
         <div className="flex flex-wrap gap-4">
-          <Button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          <Button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 hover:cursor-pointer">
             সব দোকান
           </Button>
-          <Button className="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300">
+          <Button className="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 hover:cursor-pointer">
             মুদি দোকান
           </Button>
-          <Button className="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300">
+          <Button className="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 hover:cursor-pointer">
             কাপড়ের দোকান
           </Button>
-          <Button className="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300">
+          <Button className="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 hover:cursor-pointer">
             ইলেকট্রনিক্স
           </Button>
         </div>
       </div>
-      <div className=" container mx-auto py-10 lg:pb-20 px-4 sm:px-6 lg:px-8">
-        <div>
-          <h1 className="text-4xl font-bold mt-10">নতুন দোকান</h1>
+      <div className=" container mx-auto py-5 lg:pb-20 px-4 sm:px-6 lg:px-8">
+        {/* <div>
+          <h1 className="text-4xl font-bold">নতুন দোকান</h1>
           <p className="mt-2 text-primary">
             এখানে আপনি নারুয়া বাজারের নতুন দোকান এবং আপডেট পাবেন।
           </p>
-        </div>
+        </div> */}
         <div className="">
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-6 mt-6">
             {Array.from({ length: 20 }).map((_, index) => (
