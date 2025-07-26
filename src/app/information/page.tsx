@@ -70,7 +70,7 @@ export default function InfoPage() {
         </div>
       </div>
       {/* Main Content */}
-      <div className="py-12">
+      <div className="py-2 lg:py-20">
         <div className="container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-10 px-4 sm:px-6 lg:px-8 py-12">
           {infos.map((info, index) => (
             <div
@@ -83,10 +83,10 @@ export default function InfoPage() {
             >
               <div className="card-body text-center">
                 <h2 className="text-2xl font-bold ">{info.title}</h2>
-                <h4 className="text-9xl font-semibold text-primary mb-2">
+                <h4 className="text-6xl lg:text-9xl font-semibold text-primary mb-2">
                   {info.count}
                 </h4>
-                <p className="text-gray-600 mb-4">{info.description}</p>
+                <p className="text-gray-600">{info.description}</p>
               </div>
             </div>
           ))}

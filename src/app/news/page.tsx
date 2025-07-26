@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "সংবাদ | নারুয়া বাজার",
@@ -31,31 +33,32 @@ export default function NewsPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {Array.from({ length: 6 }).map((_, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 overflow-hidden border border-gray-100"
-                >
-                  <img
-                    src={`https://source.unsplash.com/random/600x400?market,news&sig=${index}`}
-                    alt="সংবাদের ছবি"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-5">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                      সংবাদ শিরোনাম {index + 1}
-                    </h3>
-                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                      এই সংবাদে নারুয়া বাজারের সর্বশেষ আপডেট এবং ইভেন্ট সম্পর্কে
-                      বিস্তারিত তথ্য রয়েছে।
-                    </p>
-                    <a
-                      href="#"
-                      className="text-blue-600 font-medium hover:underline"
-                    >
-                      আরও পড়ুন →
-                    </a>
+                <Link key={index} href={`/news/${index + 1}`}>
+                  <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 overflow-hidden border border-gray-100">
+                    <Image
+                      src="https://placehold.co/600x300.png"
+                      alt="সংবাদ ছবি"
+                      width={600}
+                      height={300}
+                      className="w-full object-cover"
+                    />
+                    <div className="p-5">
+                      <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                        সংবাদ শিরোনাম {index + 1}
+                      </h3>
+                      <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                        এই সংবাদে নারুয়া বাজারের সর্বশেষ আপডেট এবং ইভেন্ট
+                        সম্পর্কে বিস্তারিত তথ্য রয়েছে।
+                      </p>
+                      <Link
+                        href={`/news/${index + 1}`}
+                        className="text-blue-600 font-medium hover:underline"
+                      >
+                        আরও পড়ুন →
+                      </Link>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -71,10 +74,12 @@ export default function NewsPage() {
                   key={index}
                   className="bg-blue-50 border-l-4 border-blue-400 rounded-md shadow hover:shadow-lg transition duration-300 overflow-hidden"
                 >
-                  <img
-                    src={`https://source.unsplash.com/random/600x300?event,fair&sig=${index}`}
-                    alt="ইভেন্ট ছবি"
-                    className="w-full h-40 object-cover"
+                  <Image
+                    src="https://placehold.co/600x300.png"
+                    alt="সংবাদ ছবি"
+                    width={600}
+                    height={300}
+                    className="w-full object-cover"
                   />
                   <div className="p-5">
                     <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded mb-2">

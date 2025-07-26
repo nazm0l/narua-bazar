@@ -40,13 +40,13 @@ export default function SingleShopPage({ params }: { params: { id: string } }) {
             {Array.from({ length: 20 }).map((_, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 overflow-hidden border border-gray-100"
+                className="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 overflow-hidden border border-gray-100 mb-4"
               >
                 <Image
-                  src={`https://placehold.co/200x200.png`}
+                  src={`https://placehold.co/200x150.png`}
                   alt="পণ্যের ছবি"
                   width={200}
-                  height={200}
+                  height={150}
                   className="w-full object-cover"
                 />
                 <div className="p-2">
