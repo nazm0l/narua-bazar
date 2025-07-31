@@ -132,3 +132,7 @@ body {
   position: absolute;
   margin-bottom: 0px !important;
 }
+
+.bengali-list {
+  list-style-type: bengali;
+}

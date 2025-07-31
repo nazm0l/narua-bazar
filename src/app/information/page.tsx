@@ -1,3 +1,4 @@
+import InfoDetailsCard from "@/components/InfoDetailsCard";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -52,6 +53,46 @@ const infos: TInfo = [
     count: 4,
     description: "নারুয়া বাজারের অন্তর্গত স্কুলের সংখ্যা।",
   },
+];
+
+const villages: string[] = [
+  "এলাঙ্গাডাঙ্গী",
+  "বাকসাডাঙ্গী",
+  "বড়ঘিকমলা",
+  "ঘিকমলা",
+  "পাটকিয়াবাড়ী",
+  "চরঘিকমলা",
+  "মরাবিলা",
+  "তালুকপাড়া",
+  "খাটিয়াগাড়া",
+  "বাজেগড়িয়া",
+  "বিলধামু",
+  "চরবিলধামু",
+  "বিলকাতুলী",
+  "বিলনলীয়া",
+  "বিলটাকাপোড়া",
+  "চরটাকাপোড়া",
+  "চষাবিলা",
+  "ছোটঘিকমলা",
+  "ছোটহিজলী",
+  "দেলুয়া",
+  "আদাসাকি",
+  "ধাওয়ার ঘাট",
+  "গঙ্গারামপুর",
+  "গাড়াকোলা",
+  "বাঙ্গরদাহ",
+  "চাপলবাঘা",
+  "সোনাকান্দর",
+  "জামসাপুর",
+  "খালিয়া",
+  "মধুপুর",
+  "কোনাগ্রাম",
+  "নারুয়া",
+  "শোলাবাড়ীয়া",
+  "বিলমালেঙ্গা",
+  "পারশোলাবাড়ীয়া",
+  "উত্তর শালমারা",
+  "বিলহিজলী",
 ];
 
 export default function InfoPage() {
@@ -110,6 +151,30 @@ export default function InfoPage() {
             সংখ্যা ৬,৪৪৫টি । শিক্ষার হার ৪৪.৫৯%। প্রধান কৃষিজাত ফসলের মধ্যে
             পাট,পিয়াজ, রসুন, ধান,গম ইত্যাদী।
           </p>
+        </div>
+      </div>
+      {/* Details Card  */}
+      <div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <InfoDetailsCard
+              title="গ্রাম"
+              count={villages.length}
+              data={villages}
+            />
+            <div className="space-y-6">
+              <InfoDetailsCard
+                title="দোকান"
+                count={infos[1].count}
+                data={Array.from({ length: 20 }, (_, i) => `দোকান ${i + 1}`)}
+              />
+              <InfoDetailsCard
+                title="দোকান"
+                count={infos[1].count}
+                data={Array.from({ length: 10 }, (_, i) => `দোকান ${i + 1}`)}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
