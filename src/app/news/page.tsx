@@ -33,8 +33,11 @@ export default function NewsPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {Array.from({ length: 6 }).map((_, index) => (
-                <Link key={index} href={`/news/${index + 1}`}>
-                  <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 overflow-hidden border border-gray-100">
+                <div
+                  key={index}
+                  className="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 overflow-hidden border border-gray-100"
+                >
+                  <Link href={`/news/${index + 1}`}>
                     <Image
                       src="https://placehold.co/600x300.png"
                       alt="সংবাদ ছবি"
@@ -42,23 +45,23 @@ export default function NewsPage() {
                       height={300}
                       className="w-full object-cover"
                     />
-                    <div className="p-5">
-                      <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                        সংবাদ শিরোনাম {index + 1}
-                      </h3>
-                      <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                        এই সংবাদে নারুয়া বাজারের সর্বশেষ আপডেট এবং ইভেন্ট
-                        সম্পর্কে বিস্তারিত তথ্য রয়েছে।
-                      </p>
-                      <Link
-                        href={`/news/${index + 1}`}
-                        className="text-blue-600 font-medium hover:underline"
-                      >
-                        আরও পড়ুন →
-                      </Link>
-                    </div>
+                  </Link>
+                  <div className="p-5">
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                      সংবাদ শিরোনাম {index + 1}
+                    </h3>
+                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                      এই সংবাদে নারুয়া বাজারের সর্বশেষ আপডেট এবং ইভেন্ট সম্পর্কে
+                      বিস্তারিত তথ্য রয়েছে।
+                    </p>
+                    <Link
+                      href={`/news/${index + 1}`}
+                      className="text-blue-600 font-medium hover:underline"
+                    >
+                      আরও পড়ুন →
+                    </Link>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           </div>
@@ -93,7 +96,7 @@ export default function NewsPage() {
                       সম্পর্কে বিস্তারিত তথ্য রয়েছে।
                     </p>
                     <Link
-                      href="#"
+                      href="/news/event-details"
                       className="text-blue-600 font-medium hover:underline"
                     >
                       বিস্তারিত দেখুন →

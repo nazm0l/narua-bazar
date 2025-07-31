@@ -1,4 +1,5 @@
 import ShopCard from "@/components/ShopCard";
+import ShopCardSkeleton from "@/components/ShopCardSkeleton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Metadata } from "next";
@@ -29,6 +30,13 @@ export default function ShopsPage() {
           দোকানের ধরন অনুসারে ফিল্টার করুন
         </h2>
         <div className="flex items-center gap-4">
+          <select className="border border-gray-300 rounded-lg px-4 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">সব দোকান</option>
+            <option value="grocery">মুদি দোকান</option>
+            <option value="clothing">কাপড়ের দোকান</option>
+            <option value="electronics">ইলেকট্রনিক্স</option>
+            <option value="furniture">ফার্নিচার</option>
+          </select>
           <div className="flex items-center">
             <Input className="rounded-r-none" />
             <Button
@@ -38,13 +46,6 @@ export default function ShopsPage() {
               অনুসন্ধান করুন
             </Button>
           </div>
-          <select className="border border-gray-300 rounded-lg px-4 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option value="">সব দোকান</option>
-            <option value="grocery">মুদি দোকান</option>
-            <option value="clothing">কাপড়ের দোকান</option>
-            <option value="electronics">ইলেকট্রনিক্স</option>
-            <option value="furniture">ফার্নিচার</option>
-          </select>
         </div>
       </div>
       <div className=" container mx-auto py-5 lg:pb-20 px-4 sm:px-6 lg:px-8">
@@ -61,6 +62,7 @@ export default function ShopsPage() {
                 }}
               />
             ))}
+            <ShopCardSkeleton />
           </div>
         </div>
       </div>
