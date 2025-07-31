@@ -11,8 +11,8 @@ export default function UpComingEvents() {
         </p>
       </div>
       <div className="mt-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Array.from({ length: 6 }).map((_, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {Array.from({ length: 4 }).map((_, index) => (
             <Link
               key={index}
               href={`/events/${index + 1}`}

@@ -92,12 +92,12 @@ export default function NewsPage() {
                       এই ইভেন্টে নারুয়া বাজারের বিশেষ কার্যক্রম এবং অফার
                       সম্পর্কে বিস্তারিত তথ্য রয়েছে।
                     </p>
-                    <a
+                    <Link
                       href="#"
                       className="text-blue-600 font-medium hover:underline"
                     >
                       বিস্তারিত দেখুন →
-                    </a>
+                    </Link>
                   </div>
                 </div>
               ))}
