@@ -9,6 +9,76 @@ export const metadata: Metadata = {
   description: "নারুয়া বাজারের বিভিন্ন দোকানপাটের তথ্য এবং তালিকা।",
 };
 
+type TShop = {
+  id: number;
+  name: string;
+  image: string;
+  category: string;
+}[];
+
+const shops: TShop = [
+  {
+    id: 1,
+    name: "মায়া সাইকেল স্টোর",
+    image: "https://placehold.co/300x200.png",
+    category: "রিপেয়ার ও সেবা",
+  },
+  {
+    id: 2,
+    name: "সুন্দরী ফ্যাশন হাউজ",
+    image: "https://placehold.co/300x200.png",
+    category: "কাপড়ের দোকান",
+  },
+  {
+    id: 3,
+    name: "আল-আমিন মুদি দোকান",
+    image: "https://placehold.co/300x200.png",
+    category: "মুদি দোকান",
+  },
+  {
+    id: 4,
+    name: "নতুন ইলেকট্রনিক্স",
+    image: "https://placehold.co/300x200.png",
+    category: "ইলেকট্রনিক্স",
+  },
+  {
+    id: 5,
+    name: "সুন্দরী ফার্নিচার",
+    image: "https://placehold.co/300x200.png",
+    category: "ফার্নিচার",
+  },
+  {
+    id: 6,
+    name: "শহীদ মুদি দোকান",
+    image: "https://placehold.co/300x200.png",
+    category: "মুদি দোকান",
+  },
+  {
+    id: 7,
+    name: "সুন্দরী কাপড়ের দোকান",
+    image: "https://placehold.co/300x200.png",
+    category: "কাপড়ের দোকান",
+  },
+  {
+    id: 8,
+    name: "আল-আমিন ইলেকট্রনিক্স",
+    image: "https://placehold.co/300x200.png",
+    category: "ইলেকট্রনিক্স",
+  },
+  {
+    id: 9,
+    name: "নতুন ফার্নিচার",
+    image: "https://placehold.co/300x200.png",
+    category: "ফার্নিচার",
+  },
+  {
+    id: 10,
+    name: "মায়া মুদি দোকান",
+    image: "https://placehold.co/300x200.png",
+    category: "মুদি দোকান",
+  },
+];
+
 export default function ShopsPage() {
   return (
     <div>
@@ -33,9 +103,11 @@ export default function ShopsPage() {
           <select className="border border-gray-300 rounded-lg px-4 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <option value="">সব দোকান</option>
             <option value="grocery">মুদি দোকান</option>
-            <option value="clothing">কাপড়ের দোকান</option>
-            <option value="electronics">ইলেকট্রনিক্স</option>
-            <option value="furniture">ফার্নিচার</option>
+            {shops.map((shop) => (
+              <option key={shop.id} value={shop.category}>
+                {shop.category}
+              </option>
+            ))}
           </select>
           <div className="flex items-center">
             <Input className="rounded-r-none" />
@@ -51,16 +123,8 @@ export default function ShopsPage() {
       <div className=" container mx-auto py-5 lg:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="">
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-6 mt-6">
-            {Array.from({ length: 20 }).map((_, index) => (
-              <ShopCard
-                key={index}
-                shop={{
-                  id: index + 1,
-                  name: `দোকান ${index + 1}`,
-                  image: "https://placehold.co/300x200.png",
-                  category: "মুদি দোকান",
-                }}
-              />
+            {shops.map((shop) => (
+              <ShopCard key={shop.id} shop={shop} />
             ))}
             <ShopCardSkeleton />
           </div>
