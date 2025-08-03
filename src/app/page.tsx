@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import LatestNews from "@/components/LatestNews";
 import LatestShops from "@/components/LatestShops";
+import ShopRequestSection from "@/components/ShopRequestSection";
 import UpComingEvents from "@/components/UpComingEvents";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         </div>
       </div>
       <UpComingEvents />
+      <ShopRequestSection />
     </div>
   );
 }
