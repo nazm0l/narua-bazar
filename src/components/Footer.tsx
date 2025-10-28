@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-gray-800 text-white py-20">
@@ -13,30 +15,30 @@ export default function Footer() {
           <div>
             {/* social icon */}
             <div className="flex justify-center space-x-4">
-              <a
+              <Link
                 href="https://www.facebook.com/naruabazar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-500"
               >
                 Facebook
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://www.twitter.com/naruabazar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-400"
               >
                 Twitter
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://www.instagram.com/naruabazar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-pink-500"
               >
                 Instagram
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -45,19 +47,19 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-4">দ্রুত লিঙ্ক</h3>
           <ul className="space-y-2">
             <li>
-              <a href="/about" className="text-gray-400 hover:text-white">
+              <Link href="/about" className="text-gray-400 hover:text-white">
                 আমাদের সম্পর্কে
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/contact" className="text-gray-400 hover:text-white">
+              <Link href="/contact" className="text-gray-400 hover:text-white">
                 যোগাযোগ
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/privacy" className="text-gray-400 hover:text-white">
+              <Link href="/privacy" className="text-gray-400 hover:text-white">
                 গোপনীয়তা নীতি
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -66,19 +68,19 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-4">অন্যান্য পৃষ্ঠা</h3>
           <ul className="space-y-2">
             <li>
-              <a href="/news" className="text-gray-400 hover:text-white">
+              <Link href="/news" className="text-gray-400 hover:text-white">
                 সর্বশেষ সংবাদ
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/shops" className="text-gray-400 hover:text-white">
+              <Link href="/shops" className="text-gray-400 hover:text-white">
                 নতুন দোকান
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/events" className="text-gray-400 hover:text-white">
+              <Link href="/events" className="text-gray-400 hover:text-white">
                 ইভেন্টস
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -87,15 +89,15 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-4">যোগাযোগ</h3>
           <p className="text-gray-400">
             ফোন:{" "}
-            <a href="tel:+8801234567890" className="text-white">
-              +880 123 456 7890
-            </a>
+            <Link href="tel:+8801234567890" className="text-white">
+              +880 1705 774021
+            </Link>
           </p>
           <p className="text-gray-400">
             ইমেইল:{" "}
-            <a href="mailto:nazmul0w1@gmail.com" className="text-white">
+            <Link href="mailto:nazmul0w1@gmail.com" className="text-white">
               info@naruabazar.com
-            </a>
+            </Link>
           </p>
         </div>
       </div>
