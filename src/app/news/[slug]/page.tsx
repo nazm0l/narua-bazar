@@ -1,10 +1,12 @@
 import Image from "next/image";
 
-export default function SingleNewsPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+type PageProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export default function SingleNewsPage({ params }: PageProps) {
   return (
     <div>
       {/* Single News Page */}
@@ -28,11 +30,11 @@ export default function SingleNewsPage({
             className="w-full h-64 object-cover rounded-lg shadow-md mb-6"
           />
           <h2 className="text-2xl lg:text-4xl font-bold text-gray-800 mb-4">
-            সংবাদ শিরোনাম {params.slug}
+            সংবাদ শিরোনাম {params?.slug}
           </h2>
           <div className="flex items-center gap-4">
-            <span className="text-gray-500">🗓️ তারিখ: 01 জানুয়ারি 2025</span>
-            <span className="text-gray-500">📰 উৎস: নারুয়া বাজার নিউজ</span>
+            <span className="text-gray-500">🗓️ তারিখ: 01 জানুয়ারি 2025</span>
+            <span className="text-gray-500">📰 উৎস: নারুয়া বাজার নিউজ</span>
           </div>
           <div className="mt-6">
             <p className="text-lg text-gray-600 text-justify">
