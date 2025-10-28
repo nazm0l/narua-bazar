@@ -1,5 +1,4 @@
 import ShopCard from "@/components/ShopCard";
-import ShopCardSkeleton from "@/components/ShopCardSkeleton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Metadata } from "next";
@@ -126,7 +125,6 @@ export default function ShopsPage() {
             {shops.map((shop) => (
               <ShopCard key={shop.id} shop={shop} />
             ))}
-            <ShopCardSkeleton />
           </div>
         </div>
       </div>
