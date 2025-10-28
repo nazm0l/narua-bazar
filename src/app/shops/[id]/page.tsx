@@ -1,7 +1,12 @@
 import Image from "next/image";
 import React from "react";
 
-export default function SingleShopPage({ params }: { params: { id: string } }) {
+export default async function SingleShopPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
   return (
     <div>
       {/* Single Shop Page */}
@@ -21,7 +26,7 @@ export default function SingleShopPage({ params }: { params: { id: string } }) {
           </div>
           <div>
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              দোকান {params.id}
+              দোকান {id}
             </h2>
             <p className="text-gray-600 mb-4">
               এখানে দোকানের বিস্তারিত বিবরণ থাকবে। আপনি পাবেন দোকানের অবস্থান,
