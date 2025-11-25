@@ -1,6 +1,10 @@
 import Image from "next/image";
 
-export default function SingleShopPage({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: { id: string };
+}
+
+export default function SingleShopPage({ params }: PageProps) {
   const { id } = params;
   return (
     <div>
