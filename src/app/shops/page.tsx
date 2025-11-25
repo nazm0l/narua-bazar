@@ -94,7 +94,7 @@ export default function ShopsPage() {
         </div>
       </div>
       {/* filter shops by category */}
-      <div className="container flex justify-between items-center mx-auto py-10 px-4 sm:px-6 lg:px-8">
+      <div className="container flex flex-col md:flex-row md:justify-between md:items-center gap-4 mx-auto py-10 px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold mb-4">
           দোকানের ধরন অনুসারে ফিল্টার করুন
         </h2>
@@ -121,7 +121,7 @@ export default function ShopsPage() {
       </div>
       <div className=" container mx-auto py-5 lg:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="">
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-6 mt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-6 mt-6">
             {shops.map((shop) => (
               <ShopCard key={shop.id} shop={shop} />
             ))}

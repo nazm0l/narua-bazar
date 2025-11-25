@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function ShopRequestSection() {
   return (
     <section className="bg-gradient-to-b from-slate-50 to-sky-200">
-      <div className="container mx-auto grid grid-cols-2 gap-6 items-center p-6">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6">
         <div className="mb-6">
           <Image
             src="https://placehold.co/400x200.png"

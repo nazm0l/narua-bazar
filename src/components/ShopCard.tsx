@@ -11,9 +11,9 @@ export default function ShopCard({
   return (
     <Link
       href={`/shops/${shop.id}`}
-      className="w-40 lg:w-full items-center shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300"
+      className="block"
     >
-      <div className="w-40 lg:w-full items-center shadow-lg rounded-lg bg-white">
+      <div className="w-full shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300">
         <Image
           src={shop.image}
           width={300}

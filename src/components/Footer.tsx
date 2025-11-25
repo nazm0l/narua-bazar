@@ -3,8 +3,8 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-gray-800 text-white py-20">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center">
+      <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center col-span-2 md:col-span-1">
           {/* Description of Narua Bazar */}
           <h2 className="text-2xl font-bold mb-4">নারুয়া বাজার</h2>
           <p className="text-gray-400 mb-4">
@@ -84,7 +84,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center col-span-2 md:col-span-1">
           {/* Contact Information */}
           <h3 className="text-lg font-semibold mb-4">যোগাযোগ</h3>
           <p className="text-gray-400">

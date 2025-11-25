@@ -112,7 +112,7 @@ export default function InfoPage() {
       </div>
       {/* Main Content */}
       <div className="py-2 lg:py-20">
-        <div className="container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-10 px-4 sm:px-6 lg:px-8 py-12">
+        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-4 sm:px-6 lg:px-8 py-12">
           {infos.map((info, index) => (
             <div
               key={index}
@@ -124,7 +124,7 @@ export default function InfoPage() {
             >
               <div className="card-body text-center">
                 <h2 className="text-2xl font-bold ">{info.title}</h2>
-                <h4 className="text-6xl lg:text-9xl font-semibold text-primary mb-2">
+                <h4 className="text-5xl sm:text-6xl lg:text-8xl font-semibold text-primary mb-2">
                   {info.count}
                 </h4>
                 <p className="text-gray-600">{info.description}</p>

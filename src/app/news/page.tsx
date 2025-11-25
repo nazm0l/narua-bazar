@@ -29,7 +29,7 @@ export default function NewsPage() {
           {/* News Section */}
           <div className="lg:col-span-7">
             <h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-2 border-b pb-2 border-gray-300">
-              📰 <span>সর্বশেষ সংবাদ</span>
+              <span>সর্বশেষ সংবাদ</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {Array.from({ length: 6 }).map((_, index) => (
@@ -69,7 +69,7 @@ export default function NewsPage() {
           {/* Events Section */}
           <div className="lg:col-span-3">
             <h2 className="text-3xl font-bold text-blue-700 mb-6 flex items-center gap-2 border-b pb-2 border-blue-200">
-              🎉 <span>সাম্প্রতিক ইভেন্ট</span>
+              <span>সাম্প্রতিক ইভেন্ট</span>
             </h2>
             <div className="space-y-6">
               {Array.from({ length: 2 }).map((_, index) => (

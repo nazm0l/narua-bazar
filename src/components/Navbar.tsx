@@ -76,7 +76,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="absolute top-13 left-0 w-full p-4 bg-white/90 shadow-lg backdrop-blur-sm lg:hidden">
+          <div className="absolute top-14 left-0 w-full p-4 bg-white/90 shadow-lg backdrop-blur-sm lg:hidden">
             <ul className="space-y-2 text-center">
               <li>
                 <Link

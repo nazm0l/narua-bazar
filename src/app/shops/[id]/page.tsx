@@ -1,12 +1,7 @@
 import Image from "next/image";
-import React from "react";
 
-export default async function SingleShopPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = await params;
+export default function SingleShopPage({ params }: { params: { id: string } }) {
+  const { id } = params;
   return (
     <div>
       {/* Single Shop Page */}
@@ -42,7 +37,7 @@ export default async function SingleShopPage({
           <h3 className="text-xl font-semibold text-gray-800 mb-4">
             দোকানের পণ্যসমূহ
           </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-8 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-8 gap-2">
             {Array.from({ length: 20 }).map((_, index) => (
               <div
                 key={index}
