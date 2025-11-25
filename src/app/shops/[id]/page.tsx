@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-interface PageProps {
-  params: { id: string };
-}
-
-export default function SingleShopPage({ params }: PageProps) {
-  const { id } = params;
+export default function SingleShopPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
   return (
     <div>
       {/* Single Shop Page */}
