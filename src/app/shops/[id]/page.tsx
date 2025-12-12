@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function SingleShopPage({
+export default async function SingleShopPage({
   params,
 }: {
   params: Promise<{ id: string }>;
