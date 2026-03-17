@@ -2,7 +2,23 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import ShopCard from "./ShopCard";
 
-export default function LatestShops() {
+async function getShops() {
+  try {
+    const res = await fetch("http://localhost:5000/api/v1/shop", {
+      cache: "no-store",
+    });
+    if (!res.ok) throw new Error("Failed to fetch shops");
+    const data = await res.json();
+    return data.data.slice(0, 8); // Return first 8 shops
+  } catch (error) {
+    console.error("Error fetching shops:", error);
+    return [];
+  }
+}
+
+export default async function LatestShops() {
+  const shops = await getShops();
+
   return (
     <div className="py-10 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div>
@@ -13,17 +29,22 @@ export default function LatestShops() {
       </div>
       <div className="">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mt-6">
-          {Array.from({ length: 8 }).map((_, index) => (
+          {shops.map((shop: any) => (
             <ShopCard
-              key={index}
+              key={shop._id}
               shop={{
-                id: index + 1,
-                name: `দোকান ${index + 1}`,
-                image: "https://placehold.co/300x200.png",
-                category: "মুদি দোকান",
+                id: shop._id,
+                name: shop.name,
+                image: shop.imageUrl || "https://placehold.co/300x200.png",
+                category: shop.category,
               }}
             />
           ))}
+          {shops.length === 0 && (
+            <p className="col-span-full text-center text-gray-500 py-10">
+              কোনো দোকান পাওয়া যায়নি।
+            </p>
+          )}
         </div>
       </div>
       <div className="mt-10 text-center">

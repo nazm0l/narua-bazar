@@ -1,26 +1,25 @@
 import { BadgeCheckIcon } from "lucide-react";
-import { Badge } from "./ui/badge";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { Badge } from "./ui/badge";
 
 export default function ShopCard({
   shop,
 }: {
-  shop: { id: number; name: string; image: string; category: string };
+  shop: { id: string | number; name: string; image: string; category: string };
 }) {
   return (
-    <Link
-      href={`/shops/${shop.id}`}
-      className="block"
-    >
+    <Link href={`/shops/${shop.id}`} className="block">
       <div className="w-full shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300">
-        <Image
-          src={shop.image}
-          width={300}
-          height={200}
-          alt="Latest Shop"
-          className="cursor-pointer rounded-t-lg object-cover w-full h-auto hover:scale-105 transition-transform duration-300"
-        />
+        <div className="aspect-video overflow-hidden rounded-t-lg">
+          <Image
+            src={shop.image}
+            width={400}
+            height={225}
+            alt={shop.name}
+            className="cursor-pointer object-cover w-full h-full hover:scale-105 transition-transform duration-300"
+          />
+        </div>
         <div className="p-4">
           <h4 className="text-xl font-semibold text-gray-800">
             {shop.name}

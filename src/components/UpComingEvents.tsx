@@ -19,13 +19,15 @@ export default function UpComingEvents() {
               className="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 overflow-hidden border border-gray-100"
             >
               <div className="bg-white shadow-lg rounded-lg p-5 hover:shadow-xl transition-shadow duration-300">
-                <Image
-                  src="https://placehold.co/400x200.png"
-                  alt="ইভেন্ট ছবি"
-                  width={400}
-                  height={200}
-                  className="w-full object-cover rounded-t-lg mb-5"
-                />
+                <div className="aspect-video overflow-hidden rounded-t-lg mb-5">
+                  <Image
+                    src="https://placehold.co/400x225.png"
+                    alt="ইভেন্ট ছবি"
+                    width={400}
+                    height={225}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
                   ইভেন্ট শিরোনাম {index + 1}
                 </h3>

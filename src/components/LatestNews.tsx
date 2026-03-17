@@ -1,11 +1,10 @@
 "use client";
-import React from "react";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const newsItems = [
   {
@@ -82,13 +81,15 @@ export default function LatestNews() {
           {newsItems.map((item, index) => (
             <SwiperSlide key={index}>
               <div className="w-full mx-auto bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer mt-6 hover:shadow-xl transition-shadow duration-300 ">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={300}
-                  height={200}
-                  className="object-cover w-full h-48"
-                />
+                <div className="aspect-video overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={400}
+                    height={225}
+                    className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <div className="p-4">
                   <h4 className="text-lg font-semibold text-gray-800">
                     {item.title}
