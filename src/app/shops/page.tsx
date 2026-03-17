@@ -40,9 +40,10 @@ async function getShops(searchParams: {
 export default async function ShopsPage({
   searchParams,
 }: {
-  searchParams: { category?: string; search?: string };
+  searchParams: Promise<{ category?: string; search?: string }>;
 }) {
-  const shops = await getShops(searchParams);
+  const resolvedSearchParams = await searchParams;
+  const shops = await getShops(resolvedSearchParams);
 
   // Predefined categories in Bengali
   const categories = [
@@ -86,7 +87,7 @@ export default async function ShopsPage({
         <form className="flex items-center gap-4">
           <select
             name="category"
-            defaultValue={searchParams.category || ""}
+            defaultValue={resolvedSearchParams.category || ""}
             className="border border-gray-300 rounded-lg px-4 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">সব দোকান</option>
@@ -99,7 +100,7 @@ export default async function ShopsPage({
           <div className="flex items-center">
             <Input
               name="search"
-              defaultValue={searchParams.search || ""}
+              defaultValue={resolvedSearchParams.search || ""}
               className="rounded-r-none"
               placeholder="দোকান খুঁজুন..."
             />
