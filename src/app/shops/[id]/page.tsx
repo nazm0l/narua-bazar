@@ -1,6 +1,23 @@
 import Image from "next/image";
 
-async function getShop(id: string) {
+interface Product {
+  name: string;
+  imgUrl?: string;
+}
+
+interface Shop {
+  _id: string;
+  name: string;
+  description: string;
+  address: string;
+  phoneNumber?: string;
+  ownerName: string;
+  imageUrl?: string;
+  category: string;
+  products?: Product[];
+}
+
+async function getShop(id: string): Promise<Shop | null> {
   try {
     const res = await fetch(`http://localhost:5000/api/v1/shop/${id}`, {
       cache: "no-store",
@@ -69,7 +86,7 @@ export default async function SingleShopPage({
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-8 gap-4">
             {shop.products && shop.products.length > 0 ? (
-              shop.products.map((product: any, index: number) => (
+              shop.products.map((product: Product, index: number) => (
                 <div
                   key={index}
                   className="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 overflow-hidden border border-gray-100"

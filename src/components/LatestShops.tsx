@@ -1,8 +1,15 @@
 import Link from "next/link";
-import { Button } from "./ui/button";
 import ShopCard from "./ShopCard";
+import { Button } from "./ui/button";
 
-async function getShops() {
+interface Shop {
+  _id: string;
+  name: string;
+  imageUrl?: string;
+  category: string;
+}
+
+async function getShops(): Promise<Shop[]> {
   try {
     const res = await fetch("http://localhost:5000/api/v1/shop", {
       cache: "no-store",
@@ -29,7 +36,7 @@ export default async function LatestShops() {
       </div>
       <div className="">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mt-6">
-          {shops.map((shop: any) => (
+          {shops.map((shop: Shop) => (
             <ShopCard
               key={shop._id}
               shop={{

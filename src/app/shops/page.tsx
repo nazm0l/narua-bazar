@@ -3,12 +3,22 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Metadata } from "next";
 
+interface Shop {
+  _id: string;
+  name: string;
+  imageUrl?: string;
+  category: string;
+}
+
 export const metadata: Metadata = {
   title: "দোকানপাট | নারুয়া বাজার",
   description: "নারুয়া বাজারের বিভিন্ন দোকানপাটের তথ্য এবং তালিকা।",
 };
 
-async function getShops(searchParams: { category?: string; search?: string }) {
+async function getShops(searchParams: {
+  category?: string;
+  search?: string;
+}): Promise<Shop[]> {
   const { category, search } = searchParams;
   const url = new URL("http://localhost:5000/api/v1/shop");
   if (category) url.searchParams.append("category", category);
@@ -80,7 +90,7 @@ export default async function ShopsPage({
             className="border border-gray-300 rounded-lg px-4 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">সব দোকান</option>
-            {categories.map((category: any) => (
+            {categories.map((category) => (
               <option key={category} value={category}>
                 {category}
               </option>
@@ -105,7 +115,7 @@ export default async function ShopsPage({
 
       <div className="container mx-auto py-5 lg:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-6 mt-6">
-          {shops.map((shop: any) => (
+          {shops.map((shop: Shop) => (
             <ShopCard
               key={shop._id}
               shop={{
