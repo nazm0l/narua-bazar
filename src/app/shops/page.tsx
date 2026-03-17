@@ -20,7 +20,7 @@ async function getShops(searchParams: {
   search?: string;
 }): Promise<Shop[]> {
   const { category, search } = searchParams;
-  const url = new URL("http://localhost:5000/api/v1/shop");
+  const url = new URL(`${process.env.NEXT_PUBLIC_API_URL}/shop`);
   if (category) url.searchParams.append("category", category);
   if (search) url.searchParams.append("search", search);
 

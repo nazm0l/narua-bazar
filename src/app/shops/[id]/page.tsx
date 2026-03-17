@@ -19,7 +19,7 @@ interface Shop {
 
 async function getShop(id: string): Promise<Shop | null> {
   try {
-    const res = await fetch(`http://localhost:5000/api/v1/shop/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/shop/${id}`, {
       cache: "no-store",
     });
     if (!res.ok) throw new Error("Failed to fetch shop");
