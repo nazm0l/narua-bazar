@@ -1,39 +1,41 @@
 import Image from "next/image";
 
-interface News {
+interface Event {
   _id: string;
   title: string;
   description: string;
   imgUrl: string;
-  createdAt: string;
+  date: string;
+  time: string;
+  location: string;
 }
 
-async function getNewsById(id: string): Promise<News | null> {
+async function getEventById(id: string): Promise<Event | null> {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/news/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events/${id}`, {
       cache: "no-store",
     });
-    if (!res.ok) throw new Error("Failed to fetch news");
+    if (!res.ok) throw new Error("Failed to fetch event");
     const data = await res.json();
     return data.data;
   } catch (error) {
-    console.error("Error fetching news:", error);
+    console.error("Error fetching event:", error);
     return null;
   }
 }
 
-export default async function SingleNewsPage({
+export default async function SingleEventPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ id: string }>;
 }) {
-  const { slug: id } = await params;
-  const news = await getNewsById(id);
+  const { id } = await params;
+  const event = await getEventById(id);
 
-  if (!news) {
+  if (!event) {
     return (
       <div className="container mx-auto px-4 py-20 text-center">
-        <h1 className="text-2xl font-bold">সংবাদ পাওয়া যায়নি</h1>
+        <h1 className="text-2xl font-bold">ইভেন্ট পাওয়া যায়নি</h1>
       </div>
     );
   }
@@ -53,33 +55,36 @@ export default async function SingleNewsPage({
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Main News Content */}
+          {/* Main Event Content */}
           <div className="lg:w-3/4 bg-white p-6 rounded-lg shadow-md">
             <div className="relative aspect-video mb-6 overflow-hidden rounded-lg">
               <Image
-                src={news.imgUrl || "https://placehold.co/800x450.png"}
-                alt={news.title}
+                src={event.imgUrl || "https://placehold.co/800x450.png"}
+                alt={event.title}
                 fill
                 className="object-cover"
               />
             </div>
 
             <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-              {news.title}
+              {event.title}
             </h1>
 
             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-8 pb-4 border-b">
               <span className="flex items-center gap-1">
-                🗓️ তারিখ: {new Date(news.createdAt).toLocaleDateString("bn-BD")}
+                🗓️ তারিখ: {new Date(event.date).toLocaleDateString("bn-BD")}
               </span>
               <span className="flex items-center gap-1">
-                📰 উৎস: নারুয়া বাজার নিউজ
+                🕔 সময়: {event.time}
+              </span>
+              <span className="flex items-center gap-1">
+                📍 স্থান: {event.location}
               </span>
             </div>
 
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-gray-700 text-justify whitespace-pre-wrap leading-relaxed">
-                {news.description}
+                {event.description}
               </p>
             </div>
           </div>

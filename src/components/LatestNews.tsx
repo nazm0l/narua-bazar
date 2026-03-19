@@ -1,55 +1,51 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const newsItems = [
-  {
-    title: "নারুয়াতে ছাগল চুরির অভিযোগে কিশোর কে মারপিট",
-    date: "১২ ফেব্রুয়ারি, ২০২৫",
-    image: "https://placehold.co/300x200.png",
-  },
-  {
-    title: "নতুন বাজার চালু হচ্ছে আগামী মাসে",
-    date: "২০ মার্চ, ২০২৫",
-    image: "https://placehold.co/300x200.png",
-  },
-  {
-    title: "নারুয়াতে বিদ্যুৎ সমস্যার সমাধান হচ্ছে",
-    date: "১০ এপ্রিল, ২০২৫",
-    image: "https://placehold.co/300x200.png",
-  },
-  {
-    title: "স্থানীয় স্কুলে বার্ষিক ক্রীড়া প্রতিযোগিতা",
-    date: "১৫ জানুয়ারি, ২০২৫",
-    image: "https://placehold.co/300x200.png",
-  },
-  {
-    title: "নারুয়াতে প্রথমবারের মতো হস্তশিল্প মেলা",
-    date: "৫ ফেব্রুয়ারি, ২০২৫",
-    image: "https://placehold.co/300x200.png",
-  },
-  {
-    title: "পানি সংকট নিরসনে নতুন উদ্যোগ নেওয়া হচ্ছে",
-    date: "২ মার্চ, ২০২৫",
-    image: "https://placehold.co/300x200.png",
-  },
-  {
-    title: "নারুয়া বাজারে নতুন রেস্টুরেন্ট উদ্বোধন",
-    date: "২ মার্চ, ২০২৫",
-    image: "https://placehold.co/300x200.png",
-  },
-  {
-    title: "নারুয়াতে নতুন সড়ক নির্মাণের কাজ শুরু",
-    date: "২ মার্চ, ২০২৫",
-    image: "https://placehold.co/300x200.png",
-  },
-];
+interface News {
+  _id: string;
+  title: string;
+  imgUrl: string;
+  createdAt: string;
+}
 
 export default function LatestNews() {
+  const [newsItems, setNewsItems] = useState<News[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/news`, {
+          cache: "no-store",
+        });
+        if (!res.ok) throw new Error("Failed to fetch news");
+        const data = await res.json();
+        setNewsItems(data.data.slice(0, 10)); // Show latest 10 news
+      } catch (error) {
+        console.error("Error fetching latest news:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="py-10 px-4 text-center">
+        <p>সংবাদ লোড হচ্ছে...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="py-10 lg:pt-24 px-4 sm:px-6 lg:px-8 ">
       <div className="mb-8">
@@ -76,29 +72,37 @@ export default function LatestNews() {
             },
           }}
           modules={[FreeMode, Pagination]}
-          // className="mySwiper"
         >
-          {newsItems.map((item, index) => (
-            <SwiperSlide key={index}>
-              <div className="w-full mx-auto bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer mt-6 hover:shadow-xl transition-shadow duration-300 ">
-                <div className="aspect-video overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={400}
-                    height={225}
-                    className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
-                  />
+          {newsItems.map((item) => (
+            <SwiperSlide key={item._id}>
+              <Link href={`/news/${item._id}`}>
+                <div className="w-full mx-auto bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer mt-6 hover:shadow-xl transition-shadow duration-300 ">
+                  <div className="aspect-video overflow-hidden">
+                    <Image
+                      src={item.imgUrl || "https://placehold.co/400x225.png"}
+                      alt={item.title}
+                      width={400}
+                      height={225}
+                      className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="text-lg font-semibold text-gray-800 line-clamp-2">
+                      {item.title}
+                    </h4>
+                    <p className="text-sm text-gray-500">
+                      {new Date(item.createdAt).toLocaleDateString("bn-BD")}
+                    </p>
+                  </div>
                 </div>
-                <div className="p-4">
-                  <h4 className="text-lg font-semibold text-gray-800">
-                    {item.title}
-                  </h4>
-                  <p className="text-sm text-gray-500">{item.date}</p>
-                </div>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
+          {newsItems.length === 0 && (
+            <p className="text-center text-gray-500 py-10">
+              কোনো সংবাদ পাওয়া যায়নি।
+            </p>
+          )}
         </Swiper>
       </div>
     </div>

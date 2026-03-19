@@ -1,30 +1,32 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
-interface News {
+interface Event {
   _id: string;
   title: string;
   description: string;
   imgUrl: string;
-  createdAt: string;
+  date: string;
+  time: string;
+  location: string;
 }
 
-async function getNews(): Promise<News[]> {
+async function getEvents(): Promise<Event[]> {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/news`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events`, {
       cache: "no-store",
     });
-    if (!res.ok) throw new Error("Failed to fetch news");
+    if (!res.ok) throw new Error("Failed to fetch events");
     const data = await res.json();
     return data.data;
   } catch (error) {
-    console.error("Error fetching news:", error);
+    console.error("Error fetching events:", error);
     return [];
   }
 }
 
-export default async function NewsPage() {
-  const news = await getNews();
+export default async function EventsPage() {
+  const events = await getEvents();
 
   return (
     <div>
@@ -32,11 +34,10 @@ export default async function NewsPage() {
       <div className="bg-gradient-to-r from-cyan-100/10 to-blue-200/30">
         <div className="container mx-auto p-4">
           <h1 className="text-3xl font-extrabold text-center text-gray-800 pt-10 pb-5">
-            নারুয়া বাজারের সংবাদ
+            নারুয়া বাজারের ইভেন্টস
           </h1>
           <p className="text-center text-gray-700 pb-5">
-            নারুয়া বাজারের সর্বশেষ সংবাদ, আপডেট এবং ইভেন্ট সম্পর্কে জানুন। এখানে
-            পাবেন বাজারের নতুন খবর এবং বিশেষ অফার।
+            নারুয়া বাজারের সর্বশেষ ইভেন্ট সম্পর্কে জানুন।
           </p>
         </div>
       </div>
@@ -44,18 +45,18 @@ export default async function NewsPage() {
       {/* Main Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-10">
-          {/* News Section */}
+          {/* Events Section */}
           <div className="lg:col-span-10">
             <h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-2 border-b pb-2 border-gray-300">
-              <span>সর্বশেষ সংবাদ</span>
+              <span>আসন্ন ইভেন্ট</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {news.map((item) => (
+              {events.map((item) => (
                 <div
                   key={item._id}
                   className="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 overflow-hidden border border-gray-100"
                 >
-                  <Link href={`/news/${item._id}`}>
+                  <Link href={`/events/${item._id}`}>
                     <div className="aspect-video overflow-hidden">
                       <Image
                         src={item.imgUrl || "https://placehold.co/600x338.png"}
@@ -75,10 +76,10 @@ export default async function NewsPage() {
                     </p>
                     <div className="flex justify-between items-center">
                       <span className="text-xs text-gray-500">
-                        {new Date(item.createdAt).toLocaleDateString("bn-BD")}
+                        {new Date(item.date).toLocaleDateString("bn-BD")}
                       </span>
                       <Link
-                        href={`/news/${item._id}`}
+                        href={`/events/${item._id}`}
                         className="text-blue-600 font-medium hover:underline"
                       >
                         আরও পড়ুন →
@@ -87,9 +88,9 @@ export default async function NewsPage() {
                   </div>
                 </div>
               ))}
-              {news.length === 0 && (
+              {events.length === 0 && (
                 <p className="col-span-full text-center text-gray-500 py-10">
-                  কোনো সংবাদ পাওয়া যায়নি।
+                  কোনো ইভেন্ট পাওয়া যায়নি।
                 </p>
               )}
             </div>

@@ -1,6 +1,6 @@
 "use client";
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,6 +26,11 @@ export default function Navbar() {
           <li>
             <Link href="/news" className="text-black hover:underline">
               সংবাদ
+            </Link>
+          </li>
+          <li>
+            <Link href="/events" className="text-black hover:underline">
+              ইভেন্টস
             </Link>
           </li>
           <li>
@@ -103,6 +108,15 @@ export default function Navbar() {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   সংবাদ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/events"
+                  className="block text-black hover:underline"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  ইভেন্টস
                 </Link>
               </li>
               <li>
